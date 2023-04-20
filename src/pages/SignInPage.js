@@ -13,10 +13,9 @@ export default function SignInPage() {
 
   function login(email, password){
     const body = {email: email, password: password};
-    // console.log(process.env.REACT_APP_API_URL);
     axios.post(`${process.env.REACT_APP_API_URL}/login`, body)
       .then((response) =>{
-        localStorage.setItem("token", response.data);
+        localStorage.setItem("token", response.data.token);
         Navigator("/home");
       })
       .catch((error) => {
