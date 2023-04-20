@@ -3,6 +3,9 @@ import { BiExit } from "react-icons/bi"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
 
 export default function HomePage() {
+
+  
+
   return (
     <HomeContainer>
       <Header>

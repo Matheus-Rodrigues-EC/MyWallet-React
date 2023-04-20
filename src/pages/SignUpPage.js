@@ -13,6 +13,7 @@ export default function SignUpPage() {
         <input placeholder="Confirme a senha" type="password" autocomplete="new-password" />
         <button>Cadastrar</button>
       </form>
+      <span></span>
 
       <Link>
         Já tem uma conta? Entre agora!
