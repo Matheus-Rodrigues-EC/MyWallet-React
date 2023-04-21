@@ -1,40 +1,80 @@
+import axios from "axios"
 import styled from "styled-components"
 import { BiExit } from "react-icons/bi"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function HomePage() {
 
-  
+  const Navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const [operations, setOperation] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [user, setUser] = useState("");
+
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API_URL}/home`, 
+      {
+        headers: {
+          'Authorization': `Baerer ${token}` 
+        }
+      }
+    )
+      .then((response) => {
+        const list = response.data.list;
+        setUser(response.data.user)
+        setOperation(list)
+        let sum = 0;
+        for (let i = 0; i < list.length; i++) {
+          if(list[i].type === "entrada"){
+            sum += Number(list[i].value);
+          }
+          if(list[i].type === "saida"){
+            sum -= Number(list[i].value);
+          }
+        }
+        // console.log(sum)
+        setTotal(sum);
+        return;
+      })
+      .catch((error) => {
+        alert(error);
+        Navigate("/");
+      })
+  }, [Navigate, token, operations, setOperation])
 
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, Fulano</h1>
+        <h1>Olá, {user.name}</h1>
         <BiExit />
       </Header>
 
       <TransactionsContainer>
         <ul>
-          <ListItemContainer>
-            <div>
-              <span>30/11</span>
-              <strong>Almoço mãe</strong>
-            </div>
-            <Value color={"negativo"}>120,00</Value>
-          </ListItemContainer>
-
-          <ListItemContainer>
-            <div>
-              <span>15/11</span>
-              <strong>Salário</strong>
-            </div>
-            <Value color={"positivo"}>3000,00</Value>
-          </ListItemContainer>
+          {operations.map((op) => {
+              
+              return(
+                <ListItemContainer key={op._id}>
+                  <div>
+                    <span>{op.day}</span>
+                    <strong>{op.description}</strong>
+                  </div>
+                  <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
+                    {(Number(op.value)).toFixed(2)}
+                  </Value>
+                </ListItemContainer>
+              )
+          })}
         </ul>
 
         <article>
           <strong>Saldo</strong>
-          <Value color={"positivo"}>2880,00</Value>
+          <Value color={(total >= 0) ? "positivo" : "negativo" }>
+            {(Number(total)).toFixed(2)}
+          </Value>
         </article>
       </TransactionsContainer>
 
