@@ -141,6 +141,8 @@ const TransactionsContainer = styled.article`
 
 const UL = styled.ul`
   overflow-y: scroll;
+  flex-wrap: wrap;
+  height: 80%;
 `
 
 const ButtonsContainer = styled.section`
