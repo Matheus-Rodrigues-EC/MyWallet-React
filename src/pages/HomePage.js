@@ -45,11 +45,17 @@ export default function HomePage() {
       })
   }, [Navigate, token, operations, setOperation])
 
+  function logOut(){
+    localStorage.removeItem("token");
+    alert("Sessão encerrada.")
+    Navigate("/");
+  }
+
   return (
     <HomeContainer>
       <Header>
         <h1>Olá, {user.name}</h1>
-        <BiExit />
+        <BiExit onClick={() => logOut()} />
       </Header>
 
       <TransactionsContainer>
