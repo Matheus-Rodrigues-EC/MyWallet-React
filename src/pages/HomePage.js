@@ -150,8 +150,6 @@ const UL = styled.ul`
   width: 100%;
 `
 const Info = styled.div`
-  display: flex;
-  flex-direction: row;
   overflow-wrap: break-word;
 `
 const ButtonsContainer = styled.section`
