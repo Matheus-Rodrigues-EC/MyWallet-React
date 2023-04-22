@@ -25,7 +25,7 @@ export default function HomePage() {
       .then((response) => {
         const list = response.data.list;
         setUser(response.data.user)
-        setOperation(list)
+        setOperation(list.reverse());
         let sum = 0;
         for (let i = 0; i < list.length; i++) {
           if(list[i].type === "entrada"){
@@ -53,13 +53,13 @@ export default function HomePage() {
       </Header>
 
       <TransactionsContainer>
-        <ul>
+        <UL>
           {operations.map((op) => {
               
               return(
                 <ListItemContainer key={op._id}>
                   <div>
-                    <span>{op.day}</span>
+                    <span>{op.date}</span>
                     <strong>{op.description}</strong>
                   </div>
                   <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
@@ -68,7 +68,7 @@ export default function HomePage() {
                 </ListItemContainer>
               )
           })}
-        </ul>
+        </UL>
 
         <article>
           <strong>Saldo</strong>
@@ -116,9 +116,14 @@ const TransactionsContainer = styled.article`
   padding: 16px;
   display: flex;
   flex-direction: column;
+  height: 70%;
   justify-content: space-between;
+  box-sizing: border-box;
   article {
     display: flex;
+    height: 20px;
+    align-items: end;
+    background-color: #fff;
     justify-content: space-between;   
     strong {
       font-weight: 700;
@@ -126,6 +131,12 @@ const TransactionsContainer = styled.article`
     }
   }
 `
+
+const UL = styled.ul`
+  height: 95%;
+  overflow-y: scroll;
+`
+
 const ButtonsContainer = styled.section`
   margin-top: 15px;
   margin-bottom: 0;
