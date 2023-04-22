@@ -122,6 +122,7 @@ const TransactionsContainer = styled.article`
   color: #000;
   border-radius: 5px;
   padding: 16px;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -143,6 +144,7 @@ const UL = styled.ul`
   overflow-y: scroll;
   flex-wrap: wrap;
   height: 80%;
+  width: 80%;
 `
 
 const ButtonsContainer = styled.section`
