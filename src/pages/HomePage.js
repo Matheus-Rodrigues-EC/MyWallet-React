@@ -42,10 +42,9 @@ export default function HomePage() {
       .catch((error) => {
         // eslint-disable-next-line eqeqeq
         if(error == "AxiosError: Request failed with status code 401") alert("Não autorizado.");
-        // alert(error);
         Navigate("/");
       })
-  }, [Navigate, token, operations, setOperation])
+  }, [Navigate, operations, token])
 
   function logOut(){
     localStorage.removeItem("token");
