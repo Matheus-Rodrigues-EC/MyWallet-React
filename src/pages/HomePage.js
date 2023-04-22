@@ -66,10 +66,10 @@ export default function HomePage() {
               
               return(
                 <ListItemContainer key={op._id}>
-                  <div>
+                  <Info>
                     <span>{op.date}</span>
                     <strong>{op.description}</strong>
-                  </div>
+                  </Info>
                   <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
                     {(Number(op.value)).toFixed(2)}
                   </Value>
@@ -139,7 +139,6 @@ const TransactionsContainer = styled.article`
     }
   }
 `
-
 const UL = styled.ul`
   display: flex;
   flex-grow: 1;
@@ -150,7 +149,9 @@ const UL = styled.ul`
   height: 95%;
   width: 100%;
 `
-
+const Info = styled.div`
+  overflow-wrap:break-word;
+`
 const ButtonsContainer = styled.section`
   margin-top: 15px;
   margin-bottom: 0;
