@@ -68,7 +68,7 @@ export default function HomePage() {
                 <ListItemContainer key={op._id}>
                   <div>
                     <span>{op.date}</span>
-                    <strong>{op.description}</strong>
+                    <strong><p>{op.description}</p></strong>
                   </div>
                   <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
                     {(Number(op.value)).toFixed(2)}
