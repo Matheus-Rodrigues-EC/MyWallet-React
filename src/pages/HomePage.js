@@ -149,6 +149,7 @@ const UL = styled.ul`
   width: 100%;
 `
 const Info = styled.div`
+  max-width: 80%;
   overflow-wrap: break-word;
 `
 const ButtonsContainer = styled.section`
