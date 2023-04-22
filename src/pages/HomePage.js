@@ -178,7 +178,6 @@ const ListItemContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-wrap: break-word;
   margin-bottom: 8px;
   color: #000000;
   margin-right: 10px;
