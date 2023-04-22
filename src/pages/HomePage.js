@@ -150,7 +150,9 @@ const UL = styled.ul`
   width: 100%;
 `
 const Info = styled.div`
-  overflow-wrap:break-word;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `
 const ButtonsContainer = styled.section`
   margin-top: 15px;
