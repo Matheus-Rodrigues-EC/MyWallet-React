@@ -145,8 +145,8 @@ const UL = styled.ul`
   flex-direction: column;
   overflow-y: scroll;
   flex-wrap: wrap;
-  height: 80%;
-  width: 80%;
+  height: 90%;
+  width: 100%;
 `
 
 const ButtonsContainer = styled.section`
