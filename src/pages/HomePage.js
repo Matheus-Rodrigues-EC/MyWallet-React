@@ -146,6 +146,7 @@ const UL = styled.ul`
   flex-direction: column;
   overflow-y: scroll;
   box-sizing: border-box;
+  overflow-wrap: break-word;
   height: 95%;
   width: 100%;
 `
