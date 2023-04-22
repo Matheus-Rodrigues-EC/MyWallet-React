@@ -124,7 +124,6 @@ const TransactionsContainer = styled.article`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 70%;
   justify-content: space-between;
   box-sizing: border-box;
   article {
@@ -141,7 +140,6 @@ const TransactionsContainer = styled.article`
 `
 
 const UL = styled.ul`
-  height: 95%;
   overflow-y: scroll;
 `
 
