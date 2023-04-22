@@ -142,6 +142,7 @@ const TransactionsContainer = styled.article`
 
 const UL = styled.ul`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   overflow-y: scroll;
   box-sizing: border-box;
