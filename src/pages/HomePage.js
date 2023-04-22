@@ -146,7 +146,6 @@ const UL = styled.ul`
   flex-direction: column;
   overflow-y: scroll;
   box-sizing: border-box;
-  overflow-wrap: break-word;
   height: 95%;
   width: 100%;
 `
@@ -179,6 +178,7 @@ const ListItemContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-wrap: break-word;
   margin-bottom: 8px;
   color: #000000;
   margin-right: 10px;
