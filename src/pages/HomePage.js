@@ -44,7 +44,7 @@ export default function HomePage() {
         if(error == "AxiosError: Request failed with status code 401") alert("Não autorizado.");
         Navigate("/");
       })
-  }, [Navigate, operations, token])
+  }, [Navigate, token])
 
   function logOut(){
     localStorage.removeItem("token");
