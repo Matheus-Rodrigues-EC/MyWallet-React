@@ -24,7 +24,7 @@ export default function HomePage() {
     )
       .then((response) => {
         const list = response.data.list;
-        setUser(response.data.user)
+        setUser(response.data.username)
         setOperation(list.reverse());
         let sum = 0;
         for (let i = 0; i < list.length; i++) {
