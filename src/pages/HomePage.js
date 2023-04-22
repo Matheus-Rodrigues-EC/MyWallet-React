@@ -56,7 +56,7 @@ export default function HomePage() {
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, {user.name}</h1>
+        <h1>Olá, {user}</h1>
         <BiExit onClick={() => logOut()} />
       </Header>
 
