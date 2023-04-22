@@ -152,7 +152,7 @@ const UL = styled.ul`
 const Info = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  overflow-wrap: break-word;
 `
 const ButtonsContainer = styled.section`
   margin-top: 15px;
