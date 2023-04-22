@@ -40,7 +40,9 @@ export default function HomePage() {
         return;
       })
       .catch((error) => {
-        alert(error);
+        // eslint-disable-next-line eqeqeq
+        if(error == "AxiosError: Request failed with status code 401") alert("Não autorizado.");
+        // alert(error);
         Navigate("/");
       })
   }, [Navigate, token, operations, setOperation])
