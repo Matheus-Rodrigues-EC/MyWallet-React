@@ -25,6 +25,7 @@ export default function HomePage() {
       .then((response) => {
         const list = response.data.list;
         setUser(response.data.username)
+        console.log(response.data.list)
         setOperation(list.reverse());
         let sum = 0;
         for (let i = 0; i < list.length; i++) {
@@ -60,29 +61,37 @@ export default function HomePage() {
       </Header>
 
       <TransactionsContainer>
-        <UL>
-          {operations.map((op) => {
-              
-              return(
-                <ListItemContainer key={op._id}>
-                  <Info>
-                    <span>{op.date}</span>
-                    <strong>{op.description}</strong>
-                  </Info>
-                  <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
-                    {(Number(op.value)).toFixed(2)}
-                  </Value>
-                </ListItemContainer>
-              )
-          })}
-        </UL>
+        {(operations.length === 0) ? (
+          <>
+            <WithouthInfo>Não há registros de<br/>entrada ou saída</WithouthInfo>
+          </>
+        ) : (
+          <>
+            <UL>
+              {operations.map((op) => {
+                return(
+                  <ListItemContainer key={op._id}>
+                    <Info>
+                      <span>{op.date}</span>
+                      <strong>{op.description}</strong>
+                    </Info>
+                    <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
+                      {(Number(op.value)).toFixed(2)}
+                    </Value>
+                  </ListItemContainer>
+                )
+              })}
+            </UL>
 
-        <article>
-          <strong>Saldo</strong>
-          <Value color={(total >= 0) ? "positivo" : "negativo" }>
-            {(Number(total)).toFixed(2)}
-          </Value>
-        </article>
+            <article>
+              <strong>Saldo</strong>
+              <Value color={(total >= 0) ? "positivo" : "negativo" }>
+                {(Number(total)).toFixed(2)}
+              </Value>
+            </article>
+          </>
+        )}
+        
       </TransactionsContainer>
 
 
@@ -187,4 +196,11 @@ const ListItemContainer = styled.li`
     color: #c6c6c6;
     margin-right: 10px;
   }
+`
+
+const WithouthInfo = styled.p`
+  display: flex;
+  margin: auto;
+  font-size: 1.25rem;
+  text-align: center;
 `
