@@ -10,8 +10,10 @@ export default function SignInPage() {
   const Navigator = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(false);
 
   function login(email, password){
+
     const body = {email: email, password: password};
     axios.post(`${process.env.REACT_APP_API_URL}/login`, body)
       .then((response) =>{
@@ -20,6 +22,7 @@ export default function SignInPage() {
       })
       .catch((error) => {
         alert(error.response.data)
+        setLoading(false)
       })
   }
 
@@ -40,7 +43,7 @@ export default function SignInPage() {
               value={password} 
               onChange={(e) => {setPassword(e.target.value)}} 
         />
-        <button type="button" onClick={(e) => login(email, password)}>Entrar</button>
+        <button type="button" disabled={loading} onClick={(e) => {setLoading(true); login(email, password);}}>Entrar</button>
       </form>
       <span></span>
 

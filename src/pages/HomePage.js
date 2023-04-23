@@ -12,6 +12,7 @@ export default function HomePage() {
   const [operations, setOperation] = useState([]);
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -42,8 +43,11 @@ export default function HomePage() {
       })
       .catch((error) => {
         // eslint-disable-next-line eqeqeq
-        if(error == "AxiosError: Request failed with status code 401") alert("Não autorizado.");
-        Navigate("/");
+        if(error == "AxiosError: Request failed with status code 401"){
+          alert("Não autorizado.");
+          Navigate("/");
+        }
+        setLoading(false);
       })
   }, [Navigate, token])
 
@@ -96,11 +100,11 @@ export default function HomePage() {
 
 
       <ButtonsContainer>
-        <button onClick={() => Navigate("/nova-transacao/entrada")}>
+        <button disabled={loading} onClick={() => {setLoading(true); Navigate("/nova-transacao/entrada")}}>
           <AiOutlinePlusCircle />
           <p>Nova <br /> entrada</p>
         </button>
-        <button onClick={() => Navigate("/nova-transacao/saida")}>
+        <button disabled={loading} onClick={() => {setLoading(true); Navigate("/nova-transacao/saida")}}>
           <AiOutlineMinusCircle />
           <p>Nova <br />saída</p>
         </button>

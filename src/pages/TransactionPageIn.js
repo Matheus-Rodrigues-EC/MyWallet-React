@@ -8,6 +8,7 @@ export default function TransactionsPage() {
   const Navigate = useNavigate();
   const [value, setValue] = useState();
   const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
 
   function sendOperation(value, description, event){
@@ -26,6 +27,7 @@ export default function TransactionsPage() {
       })
       .catch((error) => {
         alert(error.response.data);
+        setLoading(false);
       })
   }
 
@@ -49,7 +51,7 @@ export default function TransactionsPage() {
           value={description} 
           onChange={(e) => setDescription(e.target.value)} 
         />
-        <button onClick={(event) => sendOperation(value, description, event)} >Salvar Entrada</button>
+        <button disabled={loading} onClick={(event) => {setLoading(true); sendOperation(value, description, event);}} >Salvar Entrada</button>
       </form>
     </TransactionsContainer>
   )

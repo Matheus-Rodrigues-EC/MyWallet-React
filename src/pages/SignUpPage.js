@@ -13,6 +13,7 @@ export default function SignUpPage() {
   const [ email, setEmail ] = useState();
   const [ password, setPassword ] = useState();
   const [ validate, setValidate ] = useState();
+  const [loading, setLoading] = useState(false);
 
   function SignUp(name, email, password, validate){
     if(!(password === validate)) return alert("Senhas não conferem");
@@ -24,6 +25,7 @@ export default function SignUpPage() {
       })
       .catch((error) => {
         alert(error.response.data)
+        setLoading(false);
       })
   }
 
@@ -36,11 +38,11 @@ export default function SignUpPage() {
         <input placeholder="E-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input placeholder="Senha" type="password" autocomplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input placeholder="Confirme a senha" type="password" autocomplete="new-password" value={validate} onChange={(e) => setValidate(e.target.value)} />
-        <button type="button" onClick={() => SignUp(name, email, password, validate)} >Cadastrar</button>
+        <button type="button" disabled={loading} onClick={() => {setLoading(true); SignUp(name, email, password, validate);}} >Cadastrar</button>
       </form>
       <span></span>
 
-      <Link to={"/"}>
+      <Link to={"/"} disabled={loading}>
         Já tem uma conta? Entre agora!
       </Link>
     </SingUpContainer>
