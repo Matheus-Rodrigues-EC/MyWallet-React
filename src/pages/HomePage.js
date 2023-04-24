@@ -1,9 +1,11 @@
-import axios from "axios"
-import styled from "styled-components"
-import { BiExit } from "react-icons/bi"
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import axios from "axios";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import styled from "styled-components";
+import { BiExit, BiX } from "react-icons/bi";
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
 
@@ -26,7 +28,6 @@ export default function HomePage() {
       .then((response) => {
         const list = response.data.list;
         setUser(response.data.username)
-        console.log(response.data.list)
         setOperation(list.reverse());
         let sum = 0;
         for (let i = 0; i < list.length; i++) {
@@ -49,12 +50,45 @@ export default function HomePage() {
         }
         setLoading(false);
       })
-  }, [Navigate, token])
+  }, [Navigate, token, operations])
 
   function logOut(){
     localStorage.removeItem("token");
     alert("Sessão encerrada.")
     Navigate("/");
+  }
+
+  function deleteOperation(op){
+    const id = op._id;
+    confirmAlert({
+      title: 'Confirmar exclusão',
+      message: `Deseja excluir essa ${op.type}`,
+      buttons: [
+          {   label: 'Excluir',
+              onClick: () => {
+                axios.get(`${process.env.REACT_APP_API_URL}/home/${id}`,
+                {
+                  headers: {
+                    'Authorization': `Baerer ${token}`,
+                    'ID': `${id}`
+                  }}
+                )
+                  .then((response) => {
+                    // console.log(response);
+                    alert(response.data);
+                    // alert(`${op.type} excluída`)
+                  })
+                  .catch((error) => {
+                    alert(error.message)
+                  })
+              }
+          },
+          {
+              label: 'Cancelar',
+              onClick: () => {alert("operação cancelada")}
+          }
+      ]
+      });
   }
 
   return (
@@ -79,9 +113,12 @@ export default function HomePage() {
                       <span>{op.date}</span>
                       <strong>{op.description}</strong>
                     </Info>
-                    <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
-                      {(Number(op.value)).toFixed(2)}
-                    </Value>
+                    <Delete>
+                      <Value color={(op.type === "entrada")? "positivo" : "negativo"}>
+                        {(Number(op.value)).toFixed(2)}
+                      </Value>
+                      <BiX onClick={() => deleteOperation(op)} />
+                    </Delete>
                   </ListItemContainer>
                 )
               })}
@@ -162,7 +199,7 @@ const UL = styled.ul`
   width: 100%;
 `
 const Info = styled.div`
-  max-width: 80%;
+  max-width: 75%;
   overflow-wrap: break-word;
 `
 const ButtonsContainer = styled.section`
@@ -193,13 +230,19 @@ const ListItemContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #000000;
   margin-right: 10px;
   div span {
     color: #c6c6c6;
     margin-right: 10px;
   }
+`
+const Delete = styled.span`
+  display: flex;
+  color: #c6c6c6;
+  height: auto;
+  gap: 5px;
 `
 
 const WithouthInfo = styled.p`

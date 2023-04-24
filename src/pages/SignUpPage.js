@@ -16,7 +16,10 @@ export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
 
   function SignUp(name, email, password, validate){
-    if(!(password === validate)) return alert("Senhas não conferem");
+    if(!(password === validate)) {
+      setLoading(false);
+      return alert("Senhas não conferem");
+    }
     const body = {name, email, password};
     axios.post(`${process.env.REACT_APP_API_URL}/cadastro`, body)
       .then((response) => {
