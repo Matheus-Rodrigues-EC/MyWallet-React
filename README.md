@@ -27,7 +27,7 @@ Aqui você pode:
 - Excluir valores de entrada
 - Excluir valores de saída
 
-O MyWallet foi criado com o intuito pessoaç de gerenciar gastos sem precisar ficar recorrendo ao acesso a conta bancária sempre que quiser conferir.
+O MyWallet foi criado com o intuito pessoal de gerenciar gastos sem precisar ficar recorrendo ao acesso a conta bancária sempre que quiser conferir.
 
 Em breve:
 - O usuário poderá excluir todo o histórico de uma só vez, assim podendo melhorar a performace do sistema de gerenciamento.
@@ -49,15 +49,14 @@ Em breve:
 ``` shell
     npm install
 ```
-3. Crie um banco de dados com MongoDB com o nome que você preferir
-4. Configure um arquivo `.env.development` usando o `.env.example` como base.
-5. Para rodar localmente use
+3. Configure um arquivo `.env.development` usando o `.env.example` como base.
+4. Para rodar localmente use
 ```bash
     npm start
 ```
 
-6. Para construir a aplicação use
+5. Para construir a aplicação use
 ```bash
     npm run build
 ```
-7. Agora está pronto. Aproveite.
+6. Agora está pronto. Aproveite.
