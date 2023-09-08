@@ -41,6 +41,8 @@ Em breve:
 
 ## Como usar em desenvolvimento
 
+- ATENÇÂO. Este projeto é o Front-End de um projeto completo. Para baixar e ver as instruções para o Back-End deste projeto [clique aqui](https://github.com/Matheus-Rodrigues-EC/MyWallet-Node) para acessar o repositório.
+
 1. Clone o repositório
 2. Instale todas as dependências
 
