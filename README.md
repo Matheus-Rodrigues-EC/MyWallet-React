@@ -21,7 +21,7 @@ Aqui você pode:
 - Criar sua conta com email e senha
 - Logar em uma conta já exixtente
 - Adicionar valores de entrada de dinheiro
-- Adcionar balores de saída de dinheiro
+- Adcionar valores de saída de dinheiro
 - Editar valores de entrada
 - Editar valores de saída
 - Excluir valores de entrada
