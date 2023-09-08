@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# MyWallet - React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MyWallet é um gerenciador de gastos digital para seu controle financeiro.
 
-## Available Scripts
+<div style="display: flex; gap: 10px; align-items: center">
 
-In the project directory, you can run:
+![Alt text](image.png)
 
-### `npm start`
+![Alt text](image-1.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Você pode acessar o projeto no [link](https://mywallet-tau.vercel.app/). Fique a vontade para conferiri e testar as funcionalidades.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Sobre
 
-### `npm run build`
+MyWallet é similar a uma carteira digital, entretanto sua funcionalidade é de gerenciar gastos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aqui você pode:
+- Criar sua conta com email e senha
+- Logar em uma conta já exixtente
+- Adicionar valores de entrada de dinheiro
+- Adcionar balores de saída de dinheiro
+- Editar valores de entrada
+- Editar valores de saída
+- Excluir valores de entrada
+- Excluir valores de saída
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O MyWallet foi criado com o intuito pessoaç de gerenciar gastos sem precisar ficar recorrendo ao acesso a conta bancária sempre que quiser conferir.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Em breve:
+- O usuário poderá excluir todo o histórico de uma só vez, assim podendo melhorar a performace do sistema de gerenciamento.
 
-### `npm run eject`
+## Tecnologias utilizadas
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+  <img src="https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white"/>
+  <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/>
+  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como usar em desenvolvimento
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone o repositório
+2. Instale todas as dependências
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+``` shell
+    npm install
+```
+3. Crie um banco de dados com MongoDB com o nome que você preferir
+4. Configure um arquivo `.env.development` usando o `.env.example` como base.
+5. Para rodar localmente use
+```bash
+    npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6. Para construir a aplicação use
+```bash
+    npm run build
+```
+7. Agora está pronto. Aproveite.
